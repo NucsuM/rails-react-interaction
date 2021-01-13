@@ -1,0 +1,18 @@
+---
+version: '3.8'
+
+services:
+  le-trees-app:
+      build:
+        context: .
+      image: trees-rails-react
+      container_name: le-trees-app
+      ports: 
+      - "30000:3000"
+      - "40000:4000"
+      volumes:
+      - ./src:/usr/src/app
+      environment:
+        RAILS_ENV: development
+      stdin_open: true # docker run -i
+      tty: true        # docker run -t
