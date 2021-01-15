@@ -2,7 +2,7 @@ const path = require('path');
 
 // TODO: set rails asset folder as output
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/index.js',
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'public')
@@ -12,6 +12,9 @@ module.exports = {
       loader: 'babel-loader',
       test: /\.js$/,
       exclude: /node_modules/
+    },{
+      test: /\.css$/i,
+      use: ["css-loader"]
     }]
   }
 }
