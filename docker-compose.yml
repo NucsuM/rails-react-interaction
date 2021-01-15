@@ -2,14 +2,13 @@
 version: '3.8'
 
 services:
-  le-trees-app:
+  rri-app:
       build:
         context: .
-      image: trees-rails-react
-      container_name: le-trees-app
+      image: rri-image
+      container_name: rri-app
       ports: 
       - "30000:3000"
-      - "40000:4000"
       volumes:
       - ./src:/usr/src/app
       environment:
