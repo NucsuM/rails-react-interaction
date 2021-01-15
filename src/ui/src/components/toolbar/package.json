@@ -1,0 +1,4 @@
+{
+  "main": "./toolbar.js",
+  "style": "./toolbar.css"
+}

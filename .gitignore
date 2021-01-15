@@ -1,1 +1,5 @@
 src/ui/node_modules/
+src/node_modules
+src/ui/public/
+src/app/assets/javascripts/ui.js
+src/app/assets/stylesheets/ui.css

@@ -4,6 +4,9 @@ require 'activerecord-import'
 
 class PhotosController < ApplicationController
   def index
+  end  
+  
+  def fetch
     photos = Photo.order("created_at DESC")
     render json: photos
   end
@@ -25,7 +28,7 @@ class PhotosController < ApplicationController
     head :no_content, status: :ok
   end
 
-  def fetch
+  def query_placeholder
     response = RestClient.get 'https://jsonplaceholder.typicode.com/photos'
     if response.code == 200
       clear_data
@@ -33,6 +36,7 @@ class PhotosController < ApplicationController
       Photo.import parsed_json
       puts "#{Photo.count} imported"
     end
+    render :nothing => true, :status => 200, :content_type => 'text/html'
   end
   
   private

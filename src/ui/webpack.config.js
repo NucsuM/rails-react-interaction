@@ -1,17 +1,27 @@
-const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const _p = require('path');
+const path = process.cwd();
+const outputPath = './../app/assets';
 
-// TODO: set rails asset folder as output
 module.exports = {
-  entry: './src/app.js',
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'stylesheets/ui.css'
+    })
+  ],
+  entry: './src/index.js',
   output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, 'public')
+    filename: 'javascripts/ui.js',
+    path: _p.resolve(path, outputPath)
   },
   module: {
     rules: [{
       loader: 'babel-loader',
       test: /\.js$/,
       exclude: /node_modules/
+    },{
+      test: /\.css$/i,
+      use: [MiniCssExtractPlugin.loader, 'css-loader']
     }]
   }
 }
