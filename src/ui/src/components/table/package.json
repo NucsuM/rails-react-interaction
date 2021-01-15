@@ -1,0 +1,4 @@
+{
+  "main": "./table.js",
+  "style": "./table.css"
+}

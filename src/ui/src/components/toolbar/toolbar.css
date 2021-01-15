@@ -1,0 +1,32 @@
+.Toolbar {
+  height: 100px;
+  font-size: 25px;
+  background-color: gray;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas: "btn-fetch btn-clear textbox";
+  grid-gap: 20px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+.btn-clear {
+  grid-area: btn-clear;
+}
+
+.btn-fetch {
+  grid-area: btn-fetch;
+}
+
+.textbox {
+  grid-area: textbox;
+}

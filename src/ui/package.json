@@ -2,7 +2,7 @@
   "name": "ui",
   "version": "0.0.1",
   "description": "react photos frontend",
-  "main": "src/app.js",
+  "main": "src/App.js",
   "scripts": {
     "test": "jest"
   },
