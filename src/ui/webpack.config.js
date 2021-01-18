@@ -1,11 +1,12 @@
-const path = require('path');
+const _p = require('path');
+const path = process.cwd();
+const outputPath = './../app/assets/javascripts';
 
-// TODO: set rails asset folder as output
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, 'public')
+    filename: 'ui.js',
+    path: _p.resolve(path, outputPath)
   },
   module: {
     rules: [{

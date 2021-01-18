@@ -1,3 +1,4 @@
 src/ui/node_modules/
-s
+src/node_modules
 src/ui/public/
+src/app/assets/javascripts/ui.js
