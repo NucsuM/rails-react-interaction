@@ -3,7 +3,7 @@ import Table from "./components/table";
 import Header from "./components/header";
 import ToolBar from "./components/toolbar";
 import Footer from "./components/footer";
-// import "./styles.css";
+import "./styles.css";
 
 export default function App() {
   return (
