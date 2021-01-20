@@ -1,11 +1,17 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const _p = require('path');
 const path = process.cwd();
-const outputPath = './../app/assets/javascripts';
+const outputPath = './../app/assets';
 
 module.exports = {
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'stylesheets/ui.css'
+    })
+  ],
   entry: './src/index.js',
   output: {
-    filename: 'ui.js',
+    filename: 'javascripts/ui.js',
     path: _p.resolve(path, outputPath)
   },
   module: {
@@ -15,7 +21,7 @@ module.exports = {
       exclude: /node_modules/
     },{
       test: /\.css$/i,
-      use: ["css-loader"]
+      use: [MiniCssExtractPlugin.loader, 'css-loader']
     }]
   }
 }
