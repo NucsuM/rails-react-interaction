@@ -1,26 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import "./toolbar.css";
 import Request from 'superagent'; 
 import Textbox from "../textbox";
 
-class ToolBar extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = { data: [] };
-  // }
 
-  // async fetchData () {
-  //   const response = await Request.get('http://192.168.99.100:30000/photos/fetch')
-  //   console.log(response.text);
-  //   debugger;
-  //   this.setState({ data: response.text });
-  // }
+class ToolBar extends React.Component {
+  
+  constructor() {
+    super();
+    this.state = { 
+      data: [] 
+    };
+  }
+
+  
+
+  async fetchData (e) {
+
+    const response = await Request.get('http://192.168.99.100:30000/photos/fetch')
+    console.log(response.text);
+    // this.setState({ data: response.text });
+    const [data, setData] = useState(0);
+    setData(response.text);
+  }
 
   render() {
+    
+
     return (
       <div className="grid-container">
         <div className='grid-item'>
-          <button className="btn-fetch" type="button" >
+          <button className="btn-fetch" type="button" onClick={this.fetchData}>
             fetch data
           </button>
         </div>

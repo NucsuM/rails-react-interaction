@@ -1,5 +1,9 @@
 src/ui/node_modules/
 src/node_modules
 src/ui/public/
+src/tmp/
+src/config/master.key
+src/db/development.sqlite3
+src/log/development.log
 src/app/assets/javascripts/ui.js
 src/app/assets/stylesheets/ui.css
