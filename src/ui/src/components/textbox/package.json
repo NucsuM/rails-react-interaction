@@ -1,3 +1,4 @@
 {
-  "main": "./textbox.js"
+  "main": "./textbox.js",
+  "style": "./textbox.css"
 }

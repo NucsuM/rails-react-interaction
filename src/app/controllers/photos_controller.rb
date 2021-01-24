@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
   end  
   
   def fetch
-    photos = Photo.order("created_at DESC")
+    photos = Photo.order("created_at DESC").limit(20)
     render json: photos
   end
 

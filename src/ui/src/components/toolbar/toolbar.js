@@ -1,18 +1,48 @@
 import React from "react";
-import Textbox from "../textbox";
 import "./toolbar.css";
+import Request from 'superagent'; 
+import Textbox from "../textbox";
 
 class ToolBar extends React.Component {
+  // constructor() {
+  //   super();
+  //   this.state = { data: [] };
+  // }
+
+  // async fetchData () {
+  //   const response = await Request.get('http://192.168.99.100:30000/photos/fetch')
+  //   console.log(response.text);
+  //   debugger;
+  //   this.setState({ data: response.text });
+  // }
+
   render() {
     return (
       <div className="grid-container">
-        <button className="btn-fetch" type="button">
-          fetch data
-        </button>
-        <button className="btn-clear" type="button">
-          clear table
-        </button>
-        <Textbox className="textbox" />
+        <div className='grid-item'>
+          <button className="btn-fetch" type="button" >
+            fetch data
+          </button>
+        </div>
+        <div className='grid-item'>
+          <button className="btn-clear" type="button">
+            clear table
+          </button>
+        </div>
+        <div className='grid-item' ></div>
+        <div className='grid-item' ></div>
+        <div className='grid-item'>
+          <button className="btn-submit" type="button">
+            submit
+          </button>
+        </div>
+        <div className='grid-item'>
+          <Textbox class="tb-id" name={'id'} />
+        </div>
+        <div className='grid-item'>
+          <Textbox class="tb-title" name={'title'} />
+        </div>
+        <div className='grid-item' ></div>
       </div>
     );
   }

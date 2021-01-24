@@ -3,30 +3,48 @@
   font-size: 25px;
   background-color: gray;
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .grid-container {
+  width: 60%;
   display: grid;
-  grid-template-areas: "btn-fetch btn-clear textbox";
+  grid-template-columns: auto auto auto auto;
+  grid-template-rows: 20px 20px;
   grid-gap: 20px;
 }
 
-.grid-container > div {
+.grid-item {
   background-color: rgba(255, 255, 255, 0.8);
-  text-align: center;
+  text-align: left;
+}
+
+button {
+  width:100%;
 }
 
 .btn-clear {
   grid-area: btn-clear;
+  background-color: lightgray
 }
 
 .btn-fetch {
   grid-area: btn-fetch;
+  background-color: lightgray
 }
 
-.textbox {
-  grid-area: textbox;
+.empty {
+  grid-area: empty;
+}
+
+.btn-submit {
+  grid-area: btn-submit;
+  background-color: lightgray
+}
+
+.tb-id {
+  grid-area: tb-id;
+}
+
+.tb-title {
+  grid-area: tb-title;
 }
