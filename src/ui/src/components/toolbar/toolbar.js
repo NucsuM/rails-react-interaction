@@ -2,41 +2,51 @@ import React, { useState } from "react";
 import "./toolbar.css";
 import Textbox from "../textbox";
 
-// class ToolBar extends React.Component { 
-  const ToolBar = (props) => {  
+const sampleData = JSON.parse('[{"id":1,"albumId":1,"title":"accusamus beatae ad facilis cum similique qui sunt","url":"https://via.placeholder.com/600/92c952","thumbnailUrl":"https://via.placeholder.com/150/92c952","created_at":"2021-01-18T16:01:41.921Z","updated_at":"2021-01-18T16:01:41.921Z"},{"id":2,"albumId":1,"title":"reprehenderit est deserunt velit ipsam","url":"https://via.placeholder.com/600/771796","thumbnailUrl":"https://via.placeholder.com/150/771796","created_at":"2021-01-18T16:01:41.921Z","updated_at":"2021-01-18T16:01:41.921Z"}]')
+class ToolBar extends React.Component { 
+  // const ToolBar = (props) => {  
+  constructor(props) { 
+    super(props);
+    this.state = {
+      apiData: [],
+      itemId:null,
+      itemTitle:null 
+    } 
+  } 
+
   state = { 
-    // apiData: [],
+    apiData: [],
     itemId:null,
     itemTitle:null 
   };
   
-  fetchData = (event) => {
-    fetch('http://192.168.99.100:30000/photos/fetch')
-    .then(response => response.json())
-    // .then(data => this.setState({apiData: JSON.parse(data)}))
-    .then(props.setData(JSON.parse(data)))
-    // .then(console.log(this.state.apiData.length)) 
+  fetchData = async (event) => {
+    const response = await fetch('http://192.168.99.100:30000/photos/fetch')
+    const data = await response.json()
+    this.props.setData(data)
   }
 
   clearTable = (event) => {
-    this.props.setData = [];
+    this.props.setData([]);
   }
 
-  postData = (event) => {
+  postData = async (event) => {
+    let newValues = JSON.stringify({ id: this.state.itemId, title: this.state.itemTitle });
+    const token = document.querySelector('[name=csrf-token]').content
     const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: itemId, title: itemTitle })
-    };
-    fetch('http://192.168.99.100:30000/photos/create', requestOptions)
-    .then(response => response.json())
-    .then(console.log(response))
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': token },
+          body: newValues
+        };
+    await fetch('http://192.168.99.100:30000/photos/update', requestOptions)
+    await this.fetchData();
   }
 
-  // render() {
+    render() {
     return (
       <>
-      <h1>{this.state.itemId + ' <-> ' + this.state.itemTitle}</h1>
       <div className="grid-container">
         <div className='grid-item'>
           <button className="btn-fetch" type="button" onClick={this.fetchData}>
@@ -51,7 +61,7 @@ import Textbox from "../textbox";
         <div className='grid-item' ></div>
         <div className='grid-item' ></div>
         <div className='grid-item'>
-          <button className="btn-submit" type="button">
+          <button className="btn-submit" type="button" onClick={this.postData}>
             submit
           </button>
         </div>
@@ -76,7 +86,7 @@ import Textbox from "../textbox";
       </div>
       </>
     );
+   }
   }
-// }
 
 export default ToolBar;

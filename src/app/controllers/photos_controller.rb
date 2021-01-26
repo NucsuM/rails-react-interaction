@@ -11,20 +11,8 @@ class PhotosController < ApplicationController
     render json: photos
   end
 
-  def create
-    photo = Photo.create(photo_param)
-    render json: photo
-  end
-
   def update
-    photo = Photo.find(params[:id])
-    photo.update_attributes(photo_param)
-    render json: photo
-  end
-
-  def destroy
-    photo = Photo.find(params[:id])
-    photo.destroy
+    Photo.update(params['id'], :title => params['title'])
     head :no_content, status: :ok
   end
 
