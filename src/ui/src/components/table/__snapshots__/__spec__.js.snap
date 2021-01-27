@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table it displayes the content 1`] = `
+<table>
+  <thead>
+    <tr>
+      <th>
+        ID
+      </th>
+      <th>
+        albumId
+      </th>
+      <th>
+        title
+      </th>
+      <th>
+        url
+      </th>
+      <th>
+        thumbnailUrl
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      key="1"
+    >
+      <td>
+        1
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        accusamus beatae ad facilis cum similique qui sunt
+      </td>
+      <td>
+        https://via.placeholder.com/600/92c952
+      </td>
+      <td>
+        <img
+          height="20"
+          src="https://via.placeholder.com/150/92c952"
+          width="20"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

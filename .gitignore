@@ -1,6 +1,7 @@
 src/ui/node_modules/
-src/node_modules
 src/ui/public/
+src/ui/coverage/
+src/node_modules
 src/tmp/
 src/config/master.key
 src/db/development.sqlite3
