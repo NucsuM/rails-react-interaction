@@ -1,4 +1,3 @@
-
 import React from "react";
 import Enzyme, { shallow, mount, configure } from "enzyme";
 import Table from "./table";

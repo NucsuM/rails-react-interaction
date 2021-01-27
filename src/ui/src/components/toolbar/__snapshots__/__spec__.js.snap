@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar general look it have to display all buttons and textboxes 1`] = `
+<Fragment>
+  <div
+    className="grid-container"
+  >
+    <div
+      className="grid-item"
+    >
+      <button
+        className="btn-fetch"
+        onClick={[Function]}
+        type="button"
+      >
+        fetch data
+      </button>
+    </div>
+    <div
+      className="grid-item"
+    >
+      <button
+        className="btn-clear"
+        onClick={[Function]}
+        type="button"
+      >
+        clear table
+      </button>
+    </div>
+    <div
+      className="grid-item"
+    />
+    <div
+      className="grid-item"
+    />
+    <div
+      className="grid-item"
+    >
+      <button
+        className="btn-submit"
+        onClick={[Function]}
+        type="button"
+      >
+        submit
+      </button>
+    </div>
+    <div
+      className="grid-item"
+    >
+      <Textbox
+        class="tb-id"
+        name="id"
+        onChange={[Function]}
+      />
+    </div>
+    <div
+      className="grid-item"
+    >
+      <Textbox
+        class="tb-title"
+        name="title"
+        onChange={[Function]}
+      />
+    </div>
+    <div
+      className="grid-item"
+    />
+  </div>
+</Fragment>
+`;

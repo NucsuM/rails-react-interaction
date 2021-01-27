@@ -5,7 +5,7 @@ const Textbox = (props) => {
   return (
     <div className={ props.class }>
       <label>{props.name + ":" }</label>
-      <input type="text" id="filter" name="filter" onChange={props.onChange}></input>
+      <input type="text" id="tb-id" name="tb-name" onChange={props.onChange}></input>
     </div>
   );
 };
