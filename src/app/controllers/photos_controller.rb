@@ -24,7 +24,7 @@ class PhotosController < ApplicationController
       Photo.import parsed_json
       puts "#{Photo.count} imported"
     end
-    render :nothing => true, :status => 200, :content_type => 'text/html'
+    render :nothing => true, :status => 200
   end
   
   private

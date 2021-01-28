@@ -6,6 +6,11 @@ const sampleData = JSON.parse('[{"id":1,"albumId":1,"title":"accusamus beatae ad
 class ToolBar extends React.Component { 
   constructor(props) { 
     super(props);
+    this.state = {
+      apiData: [],
+      itemId:null,
+      itemTitle:null 
+    } 
   } 
 
   state = { 
