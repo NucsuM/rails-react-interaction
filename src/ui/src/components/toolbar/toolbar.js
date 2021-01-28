@@ -4,14 +4,8 @@ import Textbox from "../textbox";
 
 const sampleData = JSON.parse('[{"id":1,"albumId":1,"title":"accusamus beatae ad facilis cum similique qui sunt","url":"https://via.placeholder.com/600/92c952","thumbnailUrl":"https://via.placeholder.com/150/92c952","created_at":"2021-01-18T16:01:41.921Z","updated_at":"2021-01-18T16:01:41.921Z"},{"id":2,"albumId":1,"title":"reprehenderit est deserunt velit ipsam","url":"https://via.placeholder.com/600/771796","thumbnailUrl":"https://via.placeholder.com/150/771796","created_at":"2021-01-18T16:01:41.921Z","updated_at":"2021-01-18T16:01:41.921Z"}]')
 class ToolBar extends React.Component { 
-  // const ToolBar = (props) => {  
   constructor(props) { 
     super(props);
-    this.state = {
-      apiData: [],
-      itemId:null,
-      itemTitle:null 
-    } 
   } 
 
   state = { 
@@ -20,17 +14,17 @@ class ToolBar extends React.Component {
     itemTitle:null 
   };
   
-  fetchData = async (event) => {
+  fetchData = async () => {
     const response = await fetch('http://192.168.99.100:30000/photos/fetch')
     const data = await response.json()
     this.props.setData(data)
   }
 
-  clearTable = (event) => {
+  clearTable = () => {
     this.props.setData([]);
   }
 
-  postData = async (event) => {
+  postData = async () => {
     let newValues = JSON.stringify({ id: this.state.itemId, title: this.state.itemTitle });
     const token = document.querySelector('[name=csrf-token]').content
     const requestOptions = {
@@ -66,9 +60,10 @@ class ToolBar extends React.Component {
           </button>
         </div>
         <div className='grid-item'>
-          <Textbox class="tb-id" 
-          name={'id'} 
-          onChange={(e) => {
+          <Textbox 
+            class="tb-id" 
+            name={'id'} 
+            onChange={(e) => {
             this.setState({...this.state, itemId: e.target.value })
           }}
           />

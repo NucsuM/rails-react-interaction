@@ -8,9 +8,11 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe("Textbox", () => {
   let wrapper;
-
+  const label = 'a_label';
+  const text = 'typed_text';
+  
   beforeEach(() => {
-    wrapper = shallow(<ToolBar set/>);
+    wrapper = shallow(<Textbox name={label} onChange={text} />);
   });
 
   test("display the added text", () => {
